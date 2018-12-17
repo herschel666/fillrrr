@@ -9,7 +9,8 @@
     ],
     "locations": [
       "/"
-    ]
+    ],
+    "basePath": "[BASE_PATH]"
   },
   "scripts": {
     "start": "hops start",
