@@ -1,5 +1,9 @@
 language: node_js
 
+env:
+  global:
+    - secure: ilA9VuFbP5nS+iuEKBieeuurR39M4PRMvIz7wYnNcobt0ZB3ZEI15s2cQmHf5JrESDBBfOyViHcsfEfvGRjC5ufUMC5nvhmS/m3O/6CkZ/vKDZSqFdQZMd2hsrZufrwIURZL6pfj/aKlhJ9sDHe8KI2BSyMFMKlq9MeHLMrb8liGS1E723Rpg+WV6cuufwANRCLZSm6TX0W21sWkGd7BQDadBSXb3D5LLf3IFRt5WSyLFv0/nDDB+HUVwEA+Kx5xii5E5s2cS6ABxKGoxw35gdf6aQgLWALHjoXlxakh/EM1KHTf913TSgHTDwD+yMxp8WPWFPnR5DI0Qatf66LD/WRDsjLNGmEHUySCNAusEIDLXBbUr4UiX9enOEJxjfWAF5U0pkuo4ne+aFRVYBt/xuDl9gvNXv/e+e7UJTIE6RaySPmaXIeL1AnyeOI3asqsG8VQTkfXzW6W8c0KICcub4DD++CcDxlZXnrdk9NBe036f1yoKH6hwS7KoRz+AJTpz3yvasWDytaodurATgPOgJV3TXOgY4jBLmCsA7HRST831ShRY1JVBhMT36B1/katU/2F2llgaInjp02AC8XzQ5osx7Y6kJHCC8tXURvhOAN4Jbl+ATDmbbcn3FRzvNtXwTVLazvRpqXGD6IXY8hcpzw+yjgv6RyU8AFY5fLbOYE=
+
 cache:
   yarn: true
   directories:
@@ -15,3 +19,12 @@ script: yarn build:ci
 branches:
   only:
     - master
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  local-dir: ./dist
+  on:
+    branch: master
