@@ -42,7 +42,6 @@ const fillWithPlaceholderLetters = (text, ratio, placeholder = 'x') => {
 
 const Form = ({
   onSubmit,
-  isSubmitDisabled,
   languages,
   onLanguageChange,
   text,
@@ -52,7 +51,7 @@ const Form = ({
 }) => (
   <form method="post" onSubmit={onSubmit}>
     <header>
-      <button disabled={isSubmitDisabled}>Fill</button>
+      <button>Fill</button>
       {languages.map(({ title, name, selected }) => (
         <label htmlFor={name} key={name}>
           <input
@@ -74,16 +73,16 @@ const Form = ({
   </form>
 );
 
-const Result = ({ language, text }) => (
-  <div>
-    <label htmlFor={`result-${language.toLowerCase()}`}>{language}</label>
-    <textarea defaultValue={text} readOnly={true} />
-    <strong>{text.length} characters</strong>
-  </div>
-);
+const Result = ({ language, text }) =>
+  text.length ? (
+    <div>
+      <label htmlFor={`result-${language.toLowerCase()}`}>{language}</label>
+      <textarea defaultValue={text} readOnly={true} />
+      <strong>{text.length} characters</strong>
+    </div>
+  ) : null;
 
 const Fillrrr = () => {
-  const [isSubmitDisabled, setSubmitDisabled] = useState(true);
   const [text, setText] = useState('');
   const [textLength, setTextLength] = useState(0);
   const [languages, setLanguages] = useState(getInitialLanguages);
@@ -107,9 +106,8 @@ const Fillrrr = () => {
     (evnt) => {
       setText(evnt.target.value);
       setTextLength(evnt.target.value.trim().length);
-      setSubmitDisabled(!evnt.target.value.trim());
     },
-    [text, textLength, isSubmitDisabled]
+    [text, textLength]
   );
   const handleSubmit = useCallback(
     (evnt) => {
@@ -140,7 +138,6 @@ const Fillrrr = () => {
       </Helmet>
       <Form
         onSubmit={handleSubmit}
-        isSubmitDisabled={isSubmitDisabled}
         languages={languages}
         onLanguageChange={handleLanguageChange}
         text={text}
