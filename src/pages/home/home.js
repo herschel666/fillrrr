@@ -1,58 +1,43 @@
-import React, { useState, useCallback } from 'react';
+import React, { useCallback, useReducer } from 'react';
 import { normalizeText, fillWithPlaceholderLetters } from '../../util';
-import { LANGUAGES } from '../../constants';
+import {
+  reducer,
+  withLogger,
+  initialState,
+  submitAction,
+  textChangeAction,
+  languageChangeAction,
+  resetAction,
+} from './state';
 import { Form } from '../../components/form/';
 import { Result } from '../../components/result/';
 
-const getInitialLanguages = () =>
-  LANGUAGES.map((x) => ({ ...x, selected: false }));
-
 export const Home = () => {
-  const [text, setText] = useState('');
-  const [textLength, setTextLength] = useState(0);
-  const [languages, setLanguages] = useState(getInitialLanguages);
-  const [filledTexts, setFilledTexts] = useState([]);
-  const handleLanguageChange = useCallback(
-    (evnt) =>
-      setLanguages(
-        languages.map((item) => {
-          if (item.name !== evnt.target.value) {
-            return item;
-          }
-          return {
-            ...item,
-            selected: evnt.target.checked,
-          };
-        })
-      ),
-    [languages]
+  const [state, dispatch] = useReducer(withLogger(reducer), initialState);
+  const { text, filledTexts, textLength, languages } = state;
+  const handleLanguageChange = useCallback((evnt) =>
+    dispatch(languageChangeAction(evnt.target.value, evnt.target.checked))
   );
-  const handleTextChange = useCallback(
-    (evnt) => {
-      setText(evnt.target.value);
-      setTextLength(evnt.target.value.trim().length);
-    },
-    [text, textLength]
+  const handleTextChange = useCallback((evnt) =>
+    dispatch(textChangeAction(evnt.target.value))
   );
   const handleSubmit = useCallback(
     (evnt) => {
       evnt.preventDefault();
       const relevantLanguages = languages.filter(({ selected }) => selected);
 
-      setFilledTexts(
-        relevantLanguages.map((item) => ({
-          text: fillWithPlaceholderLetters(normalizeText(text), item.ratio),
-          language: item.name,
-        }))
+      dispatch(
+        submitAction(
+          relevantLanguages.map((item) => ({
+            text: fillWithPlaceholderLetters(normalizeText(text), item.ratio),
+            language: item.name,
+          }))
+        )
       );
     },
     [text, languages]
   );
-  const handleResetClick = useCallback(() => {
-    setFilledTexts([]);
-    setLanguages(getInitialLanguages());
-    setText('');
-  });
+  const handleResetClick = useCallback(() => dispatch(resetAction()));
 
   return (
     <>
