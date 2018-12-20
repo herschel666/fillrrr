@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import { render } from 'hops';
 import { NotFound } from './pages/not-found/';
 import { Home } from './pages/home/';
+import 'normalize.css?global'; // eslint-disable-line import/no-unresolved
 
 const App = () => (
   <>
