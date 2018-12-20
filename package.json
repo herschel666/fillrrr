@@ -26,24 +26,24 @@
     "hops-postcss": "^11.0.1",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.6.2",
-    "react": "^16.7.0-alpha.2",
-    "react-dom": "^16.7.0-alpha.2",
+    "react": "16.7.0-alpha.2",
+    "react-dom": "16.7.0-alpha.2",
     "react-helmet": "^5.2.0",
     "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
-    "babel-eslint": "10.0.1",
-    "eslint": "5.10.0",
-    "eslint-config-prettier": "3.3.0",
-    "eslint-plugin-import": "2.14.0",
-    "eslint-plugin-node": "8.0.0",
-    "eslint-plugin-prettier": "3.0.0",
-    "eslint-plugin-react": "7.11.1",
-    "eslint-plugin-react-hooks": "0.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.10.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-react-hooks": "^0.0.0",
     "jest": "^23.6.0",
     "jest-preset-hops": "^11.0.1",
-    "prettier": "1.15.3",
-    "react-test-renderer": "^16.7.0-alpha.2"
+    "prettier": "^1.15.3",
+    "react-test-renderer": "16.7.0-alpha.2"
   },
   "jest": {
     "preset": "jest-preset-hops"
