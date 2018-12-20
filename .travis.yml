@@ -15,7 +15,10 @@ before_install:
   - export PATH=$HOME/.yarn/bin:$PATH
 
 install: yarn
-script: yarn build:ci
+
+script:
+  - yarn test
+  - yarn build:ci
 
 branches:
   only:
