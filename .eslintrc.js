@@ -5,7 +5,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:prettier/recommended',
   ],
-  plugins: ['node'],
+  plugins: ['node', 'react-hooks'],
   rules: {
     'node/no-unsupported-features/es-syntax': [
       'error',
@@ -20,6 +20,7 @@ module.exports = {
       },
     ],
     'prettier/prettier': 'error',
+    'react-hooks/rules-of-hooks': 'error',
   },
   parserOptions: {
     ecmaVersion: 2018,
