@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
 export const Result = ({ language, text }) =>
   text.length ? (
@@ -8,3 +9,8 @@ export const Result = ({ language, text }) =>
       <strong>{text.length} characters</strong>
     </div>
   ) : null;
+
+Result.propTypes = {
+  language: propTypes.string.isRequired,
+  text: propTypes.string.isRequired,
+};
