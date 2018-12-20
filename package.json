@@ -38,6 +38,7 @@
     "eslint-plugin-node": "8.0.0",
     "eslint-plugin-prettier": "3.0.0",
     "eslint-plugin-react": "7.11.1",
+    "eslint-plugin-react-hooks": "0.0.0",
     "jest": "^23.6.0",
     "jest-preset-hops": "^11.0.1",
     "prettier": "1.15.3",
