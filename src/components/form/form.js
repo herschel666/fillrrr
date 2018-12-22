@@ -1,6 +1,11 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
+import { Button } from '../../ui/button';
+import { Textarea } from '../textarea';
+import { Form as FormElement, Controls, InputWrapper } from './elements';
+import { Checkbox } from './checkbox';
+
 export const Form = ({
   onSubmit,
   languages,
@@ -10,28 +15,26 @@ export const Form = ({
   textLength,
   onResetClick,
 }) => (
-  <form method="post" onSubmit={onSubmit}>
-    <header>
-      <button>Fill</button>
-      <button onClick={onResetClick} type="reset">
+  <FormElement method="post" onSubmit={onSubmit}>
+    <Controls>
+      <Button>Fill</Button>
+      <Button onClick={onResetClick} type="reset">
         Reset
-      </button>
+      </Button>
       {languages.map(({ title, name, selected }) => (
-        <label htmlFor={name} key={name}>
-          <input
-            type="checkbox"
-            id={name}
-            value={name}
-            onChange={onLanguageChange}
-            checked={selected}
-          />
-          {title}
-        </label>
+        <Checkbox
+          key={name}
+          name={name}
+          title={title}
+          checked={selected}
+          onChange={onLanguageChange}
+        />
       ))}
-    </header>
-    <textarea value={text} onChange={onTextChange} />
-    <strong>{textLength} characters</strong>
-  </form>
+    </Controls>
+    <InputWrapper>
+      <Textarea value={text} textLength={textLength} onChange={onTextChange} />
+    </InputWrapper>
+  </FormElement>
 );
 
 Form.propTypes = {
