@@ -24,7 +24,6 @@
   "dependencies": {
     "hops": "^11.0.1",
     "hops-styled-components": "^11.0.1",
-    "normalize.css": "^8.0.1",
     "prop-types": "^15.6.2",
     "react": "16.7.0-alpha.2",
     "react-dom": "16.7.0-alpha.2",
