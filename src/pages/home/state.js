@@ -1,5 +1,7 @@
 import { LANGUAGES } from '../../constants';
 
+const MESSAGE_MISSING_LANGUAGES = 'Please choose at least one language.';
+
 const SUBMIT = 'home::SUBMIT';
 const TEXT_CHANGE = 'home::TEXT_CHANGE';
 const LANGUAGE_CHANGE = 'home::LANGUAGE_CHANGE';
@@ -28,6 +30,7 @@ const initialLanguages = LANGUAGES.map((x) => ({ ...x, selected: false }));
 
 export const initialState = {
   text: '',
+  feedback: '',
   textLength: 0,
   languages: initialLanguages,
   filledTexts: [],
@@ -47,13 +50,26 @@ export const withLogger = (reducerFn) => (state, action) => {
   return newState;
 };
 
+const hasChoosenLanguages = (state) =>
+  state.languages.some(({ selected }) => selected);
+
+const getFeedback = (state) => {
+  return !state.text || hasChoosenLanguages(state)
+    ? ''
+    : MESSAGE_MISSING_LANGUAGES;
+};
+
 export const reducer = (state, action) => {
   switch (action.type) {
-    case SUBMIT:
+    case SUBMIT: {
+      const feedback = getFeedback(state);
+
       return {
         ...state,
         filledTexts: action.payload.filledTexts,
+        feedback,
       };
+    }
 
     case TEXT_CHANGE:
       return {
@@ -72,9 +88,12 @@ export const reducer = (state, action) => {
           selected: action.payload.checked,
         };
       });
+      const feedback = getFeedback({ ...state, languages });
+
       return {
         ...state,
         languages,
+        feedback,
       };
     }
 

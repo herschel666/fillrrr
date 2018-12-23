@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-import { grey200 } from '../../ui/_colors';
+import { medium } from '../../ui/_breakpoints';
+import { danger, grey200 } from '../../ui/_colors';
 import { Label } from '../../ui/label';
 import { Button } from '../../ui/button';
 
@@ -25,4 +26,14 @@ export const Controls = styled.fieldset`
 
 export const Form = styled.form`
   margin-bottom: 32px;
+`;
+
+export const Feedback = styled.div`
+  margin-top: 16px;
+  color: ${danger};
+
+  @media (min-width: ${medium}px) {
+    margin-top: unset;
+    display: inline;
+  }
 `;

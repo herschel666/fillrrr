@@ -2,7 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 
 import { Button } from '../../ui/button';
-import { Form as FormElement, Controls } from './elements';
+import { Form as FormElement, Controls, Feedback } from './elements';
 import { Textarea } from '../textarea';
 import { Checkbox } from './checkbox';
 
@@ -11,12 +11,13 @@ export const Form = ({
   languages,
   onLanguageChange,
   text,
+  feedback,
   onTextChange,
   textLength,
   onResetClick,
 }) => (
   <FormElement method="post" onSubmit={onSubmit}>
-    <Controls>
+    <Controls aria-describedby="missing-languages-error">
       {languages.map(({ title, name, selected }) => (
         <Checkbox
           key={name}
@@ -42,6 +43,11 @@ export const Form = ({
       <Button onClick={onResetClick} type="reset">
         Reset
       </Button>
+      {feedback && (
+        <Feedback id="missing-languages-error" role="alert">
+          {feedback}
+        </Feedback>
+      )}
     </Controls>
   </FormElement>
 );
@@ -57,6 +63,7 @@ Form.propTypes = {
   ).isRequired,
   onLanguageChange: propTypes.func.isRequired,
   text: propTypes.string.isRequired,
+  feedback: propTypes.string.isRequired,
   onTextChange: propTypes.func.isRequired,
   textLength: propTypes.number.isRequired,
   onResetClick: propTypes.func.isRequired,
