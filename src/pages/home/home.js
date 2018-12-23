@@ -9,6 +9,7 @@ import {
   languageChangeAction,
   resetAction,
 } from './state';
+import { Wrapper } from '../../components/wrapper/';
 import { Form } from '../../components/form/';
 import { Result } from '../../components/result/';
 
@@ -40,7 +41,7 @@ export const Home = () => {
   const handleResetClick = useCallback(() => dispatch(resetAction()));
 
   return (
-    <>
+    <Wrapper>
       <Form
         onSubmit={handleSubmit}
         languages={languages}
@@ -50,9 +51,9 @@ export const Home = () => {
         textLength={textLength}
         onResetClick={handleResetClick}
       />
-      {filledTexts.map((props) => (
-        <Result key={props.language} {...props} />
+      {filledTexts.map((texts) => (
+        <Result key={texts.language} {...texts} />
       ))}
-    </>
+    </Wrapper>
   );
 };

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { Wrapper, Title } from './elements';
+import { Wrapper } from '../../components/wrapper/';
+import { Title } from './elements';
 
 export const NotFound = () => (
   <Wrapper>

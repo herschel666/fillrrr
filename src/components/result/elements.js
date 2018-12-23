@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
+import { large } from '../../ui/_breakpoints';
 import { light, grey200, grey500, grey700 } from '../../ui/_colors';
 import { IconChevronDown } from '../../ui/icon-chevron-down';
 import { BaseButton } from '../../ui/base-button';
 
 export const Wrapper = styled.div`
-  margin: 16px;
+  padding: 16px;
+
+  @media (min-width: ${large}px) {
+    border-bottom: 1px solid ${grey200};
+  }
 `;
 
 export const ToggleIconElem = styled(IconChevronDown.Elem)`
