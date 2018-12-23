@@ -15,7 +15,7 @@ import { Result } from '../../components/result/';
 
 export const Home = () => {
   const [state, dispatch] = useReducer(withLogger(reducer), initialState);
-  const { text, filledTexts, textLength, languages } = state;
+  const { text, feedback, filledTexts, textLength, languages } = state;
   const handleLanguageChange = useCallback((evnt) =>
     dispatch(languageChangeAction(evnt.target.value, evnt.target.checked))
   );
@@ -36,7 +36,7 @@ export const Home = () => {
         )
       );
     },
-    [text, languages]
+    [text, feedback, languages]
   );
   const handleResetClick = useCallback(() => dispatch(resetAction()));
 
@@ -47,6 +47,7 @@ export const Home = () => {
         languages={languages}
         onLanguageChange={handleLanguageChange}
         text={text}
+        feedback={feedback}
         onTextChange={handleTextChange}
         textLength={textLength}
         onResetClick={handleResetClick}
