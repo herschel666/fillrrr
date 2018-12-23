@@ -28,7 +28,14 @@ export const Form = ({
       ))}
     </Controls>
     <Controls>
-      <Textarea value={text} textLength={textLength} onChange={onTextChange} />
+      <Textarea
+        id="original-text"
+        value={text}
+        textLength={textLength}
+        onChange={onTextChange}
+        placeholder="Enter the original text&hellip;"
+        label="Original text"
+      />
     </Controls>
     <Controls>
       <Button>Fill</Button>
