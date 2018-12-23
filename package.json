@@ -8,7 +8,8 @@
       "last 1 Chrome versions"
     ],
     "locations": [
-      "/"
+      "/",
+      "/404.html"
     ],
     "basePath": "[BASE_PATH]"
   },
