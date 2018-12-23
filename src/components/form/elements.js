@@ -5,7 +5,7 @@ import { Label } from '../../ui/label';
 import { Button } from '../../ui/button';
 
 export const FormLabel = styled(Label)`
-  display: inline-block;
+  display: inline-flex;
 `;
 
 export const Input = styled.input`
