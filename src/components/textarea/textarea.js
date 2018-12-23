@@ -11,6 +11,7 @@ export const Textarea = ({
   onChange,
   readOnly,
   onMouseOver,
+  onMouseOut,
 }) => (
   <>
     <BaseTextarea
@@ -23,6 +24,7 @@ export const Textarea = ({
       spellCheck="false"
       readOnly={readOnly}
       onMouseOver={onMouseOver}
+      onMouseOut={onMouseOut}
     />
     <TextLength>{textLength} characters</TextLength>
   </>
@@ -35,4 +37,5 @@ Textarea.propTypes = {
   onChange: propTypes.func,
   readOnly: propTypes.bool,
   onMouseOver: propTypes.func,
+  onMouseOut: propTypes.func,
 };
