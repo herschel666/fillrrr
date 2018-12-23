@@ -6,7 +6,7 @@ import { Title } from './elements';
 
 export const NotFound = () => (
   <Wrapper>
-    <Title>Nothing available here…</Title>
+    <Title>Nothing available here&hellip;</Title>
     <Link to="/">Back to the startpage</Link>
   </Wrapper>
 );

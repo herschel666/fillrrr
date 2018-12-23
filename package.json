@@ -17,7 +17,7 @@
     "start": "hops start",
     "build": "hops build",
     "build:ci": "hops build -ps",
-    "test": "yarn lint",
+    "test": "yarn lint && yarn jest",
     "lint": "eslint 'src/**/*.js'",
     "serve": "hops serve",
     "fmt": "prettier --write '**/*.{js,json,css}' '**/README.md'"
@@ -27,7 +27,7 @@
     "hops-styled-components": "^11.0.1",
     "prop-types": "^15.6.2",
     "react": "16.7.0-alpha.2",
-    "react-autosize-textarea": "6.0.0",
+    "react-autosize-textarea": "^6.0.0",
     "react-dom": "16.7.0-alpha.2",
     "react-helmet": "^5.2.0",
     "react-router-dom": "^4.3.1",
@@ -43,13 +43,14 @@
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-react-hooks": "^0.0.0",
     "jest": "^23.6.0",
+    "jest-dom": "^3.0.0",
     "jest-preset-hops": "^11.0.1",
     "prettier": "^1.15.3",
-    "react-test-renderer": "16.7.0-alpha.2"
+    "react-test-renderer": "16.7.0-alpha.2",
+    "react-testing-library": "^5.4.2"
   },
   "jest": {
     "preset": "jest-preset-hops"
   },
-  "gitHead": "c272c1a0b54815984be55e23551dfe4cdcb4f04a",
-  "private": true
+  "gitHead": "c272c1a0b54815984be55e23551dfe4cdcb4f04a"
 }
