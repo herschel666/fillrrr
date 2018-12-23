@@ -1,0 +1,19 @@
+// "Proudly" stolen from https://github.com/twbs/bootstrap.
+export const grey100 = '#f8f9fa';
+export const grey200 = '#e9ecef';
+export const grey300 = '#dee2e6';
+export const grey400 = '#ced4da';
+export const grey500 = '#adb5bd';
+export const grey600 = '#6c757d';
+export const grey700 = '#495057';
+export const grey800 = '#343a40';
+export const grey900 = '#212529';
+
+export const primary = '#007bff';
+export const secondary = '#6c757d';
+export const success = '#28a745';
+export const info = '#17a2b8';
+export const warning = '#ffc107';
+export const danger = '#dc3545';
+export const light = grey100;
+export const dark = grey800;

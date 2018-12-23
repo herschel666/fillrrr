@@ -50,7 +50,6 @@ export const Home = () => {
         textLength={textLength}
         onResetClick={handleResetClick}
       />
-      <hr />
       {filledTexts.map((props) => (
         <Result key={props.language} {...props} />
       ))}
