@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { Wrapper, Title } from './elements';
+
 export const NotFound = () => (
-  <>
-    <h1>Nothing available here…</h1>
+  <Wrapper>
+    <Title>Nothing available here…</Title>
     <Link to="/">Back to the startpage</Link>
-  </>
+  </Wrapper>
 );
