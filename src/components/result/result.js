@@ -16,6 +16,13 @@ export const Result = ({ language, text }) => {
   const handleClick = useCallback(() => toggleDetailOpen(!detailOpen), [
     detailOpen,
   ]);
+  const handleMouseOver = useCallback((evnt) => evnt.target.select());
+  const handleMouseOut = useCallback((evnt) => {
+    if (window.getSelection) {
+      window.getSelection().removeAllRanges();
+    }
+    evnt.target.blur();
+  });
   const name = `result-${language.toLowerCase()}`;
 
   return text.length ? (
@@ -38,6 +45,8 @@ export const Result = ({ language, text }) => {
             defaultValue={text}
             textLength={text.length}
             readOnly={true}
+            onMouseOver={handleMouseOver}
+            onMouseOut={handleMouseOut}
           />
         </Detail>
       )}

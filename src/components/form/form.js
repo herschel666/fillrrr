@@ -2,8 +2,8 @@ import React from 'react';
 import propTypes from 'prop-types';
 
 import { Button } from '../../ui/button';
+import { Form as FormElement, Controls } from './elements';
 import { Textarea } from '../textarea';
-import { Form as FormElement, Controls, InputWrapper } from './elements';
 import { Checkbox } from './checkbox';
 
 export const Form = ({
@@ -17,10 +17,6 @@ export const Form = ({
 }) => (
   <FormElement method="post" onSubmit={onSubmit}>
     <Controls>
-      <Button>Fill</Button>
-      <Button onClick={onResetClick} type="reset">
-        Reset
-      </Button>
       {languages.map(({ title, name, selected }) => (
         <Checkbox
           key={name}
@@ -31,9 +27,15 @@ export const Form = ({
         />
       ))}
     </Controls>
-    <InputWrapper>
+    <Controls>
       <Textarea value={text} textLength={textLength} onChange={onTextChange} />
-    </InputWrapper>
+    </Controls>
+    <Controls>
+      <Button>Fill</Button>
+      <Button onClick={onResetClick} type="reset">
+        Reset
+      </Button>
+    </Controls>
   </FormElement>
 );
 
