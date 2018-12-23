@@ -42,6 +42,7 @@ export const Result = ({ language, text }) => {
       {detailOpen && (
         <Detail id={name}>
           <Textarea
+            rows={3}
             defaultValue={text}
             textLength={text.length}
             readOnly={true}

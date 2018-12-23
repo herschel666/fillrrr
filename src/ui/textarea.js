@@ -1,7 +1,8 @@
+import TextareaAutosize from 'react-autosize-textarea';
 import styled from 'styled-components';
 import { grey300, grey500, grey600 } from './_colors';
 
-export const Textarea = styled.textarea`
+export const Textarea = styled(TextareaAutosize)`
   box-sizing: border-box;
   width: 100%;
   padding: 8px;

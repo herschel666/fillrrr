@@ -5,6 +5,7 @@ import { Textarea as BaseTextarea } from '../../ui/textarea';
 import { TextLength } from './elements';
 
 export const Textarea = ({
+  rows,
   value,
   defaultValue,
   textLength,
@@ -15,6 +16,7 @@ export const Textarea = ({
 }) => (
   <>
     <BaseTextarea
+      rows={rows}
       value={value}
       defaultValue={defaultValue}
       onChange={onChange}
@@ -31,6 +33,7 @@ export const Textarea = ({
 );
 
 Textarea.propTypes = {
+  rows: propTypes.number,
   value: propTypes.string,
   defaultValue: propTypes.string,
   textLength: propTypes.number.isRequired,
@@ -38,4 +41,8 @@ Textarea.propTypes = {
   readOnly: propTypes.bool,
   onMouseOver: propTypes.func,
   onMouseOut: propTypes.func,
+};
+
+Textarea.defaultProps = {
+  rows: 4,
 };
