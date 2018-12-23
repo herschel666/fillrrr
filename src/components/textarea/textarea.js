@@ -4,7 +4,14 @@ import propTypes from 'prop-types';
 import { Textarea as BaseTextarea } from '../../ui/textarea';
 import { TextLength } from './elements';
 
-export const Textarea = ({ value, defaultValue, textLength, onChange }) => (
+export const Textarea = ({
+  value,
+  defaultValue,
+  textLength,
+  onChange,
+  readOnly,
+  onMouseOver,
+}) => (
   <>
     <BaseTextarea
       value={value}
@@ -14,6 +21,8 @@ export const Textarea = ({ value, defaultValue, textLength, onChange }) => (
       autoCorrect="off"
       autoCapitalize="off"
       spellCheck="false"
+      readOnly={readOnly}
+      onMouseOver={onMouseOver}
     />
     <TextLength>{textLength} characters</TextLength>
   </>
@@ -24,4 +33,6 @@ Textarea.propTypes = {
   defaultValue: propTypes.string,
   textLength: propTypes.number.isRequired,
   onChange: propTypes.func,
+  readOnly: propTypes.bool,
+  onMouseOver: propTypes.func,
 };
