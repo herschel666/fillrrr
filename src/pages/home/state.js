@@ -76,6 +76,7 @@ export const reducer = (state, action) => {
         ...state,
         textLength: action.payload.text.trim().length,
         text: action.payload.text,
+        filledTexts: [],
       };
 
     case LANGUAGE_CHANGE: {
